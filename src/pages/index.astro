@@ -22,11 +22,9 @@ import { pathFor } from '../data/navigation';
     <main>
       <!-- PHẦN GIỚI THIỆU -->
       <section class="welcome">
-
-
         <h1 class="nie-title">🌷 Góc nhỏ của Nie 🌷</h1>
 
-		<span class="eyebrow">
+        <span class="eyebrow">
           Chào mừng cậu đến với góc nhỏ của tớ
         </span>
 
@@ -48,42 +46,69 @@ import { pathFor } from '../data/navigation';
         <a class="button" href={pathFor("blog")}>
           Khám phá bài viết →
         </a>
-
       </section>
 
       <!-- SÁU CHUYÊN MỤC CHÍNH -->
       <section class="categories" aria-label="Khám phá các chuyên mục">
         <div class="cards">
+
           <a class="card" href={pathFor("ve-nie")}>
             <span aria-hidden="true">🌸</span>
             <h3>Về Nie</h3>
-            <p>Một chút về tớ, những điều tớ yêu, những thứ tớ làm và\nsự ra đời của "góc nhỏ".</p>
+            <p>
+              Một chút về tớ, những điều tớ yêu,
+              những thứ tớ làm và sự ra đời của "góc nhỏ".
+            </p>
           </a>
+
           <a class="card" href={pathFor("nhat-ky")}>
             <span aria-hidden="true">📖</span>
             <h3>Nhật ký của Nie</h3>
-            <p>Những tháng ngày bình dị, những kỉ niệm trên hành trình trưởng thành tớ muốn lưu lại qua từng tháng từng năm.</p>
+            <p>
+              Những tháng ngày bình dị, những kỉ niệm trên
+              hành trình trưởng thành tớ muốn lưu lại
+              qua từng tháng từng năm.
+            </p>
           </a>
+
           <a class="card" href={pathFor("hanh-trinh-kiem-con-chu")}>
             <span aria-hidden="true">🎓</span>
             <h3>Hành trình kiếm con chữ</h3>
-            <p>Từ lũy tre làng đến Sài Gòn hoa lệ, từ chiếc xe đạp không phanh đến tấm vé đi Hàn.</p>
+            <p>
+              Từ lũy tre làng đến Sài Gòn hoa lệ,
+              từ chiếc xe đạp không phanh đến tấm vé đi Hàn.
+            </p>
           </a>
+
           <a class="card" href={pathFor("mot-chut-tu-hao")}>
             <span aria-hidden="true">🏅</span>
             <h3>Một chút tự hào</h3>
-            <p>Những “bông hoa” nở trên hành trình trưởng thành và những “trái ngọt” tớ hái được sau tháng năm vun trồng, chăm sóc.</p>
+            <p>
+              Những “bông hoa” nở trên hành trình trưởng thành
+              và những “trái ngọt” tớ hái được sau tháng năm
+              vun trồng, chăm sóc.
+            </p>
           </a>
+
           <a class="card" href={pathFor("the-gioi-trong-mat-nie")}>
             <span aria-hidden="true">🌍</span>
             <h3>Thế giới trong mắt Nie</h3>
-            <p>Những nơi đất tớ đặt chân đến, những câu chuyện nhặt nhạnh dọc đường và những khoảnh khắc tớ giữ lại qua ống kính.</p>
+            <p>
+              Những nơi đất tớ đặt chân đến,
+              những câu chuyện nhặt nhạnh dọc đường
+              và những khoảnh khắc tớ giữ lại qua ống kính.
+            </p>
           </a>
+
           <a class="card" href={pathFor("nie-ke-cau-nghe")}>
             <span aria-hidden="true">💌</span>
             <h3>Nie kể cậu nghe</h3>
-            <p>Những chuyện nhỏ xíu xiu, những lời tâm sự và những điều tớ muốn giữ lại lâu hơn.</p>
+            <p>
+              Những chuyện nhỏ xíu xiu, những lời tâm sự
+              và những điều tớ muốn giữ lại lâu hơn.
+            </p>
           </a>
+
         </div>
       </section>
     </main>
@@ -93,8 +118,9 @@ import { pathFor } from '../data/navigation';
 </html>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Playwrite+FR+Moderne:wght@100..400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playwrite+FR+Moderne:wght@100..400&display=swap');
+
   /* BỐ CỤC CHUNG */
   main {
     width: 100%;
@@ -109,19 +135,25 @@ import { pathFor } from '../data/navigation';
     padding: 5rem 1rem;
   }
 
+  /* TIÊU ĐỀ CHÍNH */
+  .nie-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #222222;
+    margin: 1.5rem 0 0.2rem;
+  }
+
   /* DÒNG CHÀO MỪNG */
   .eyebrow {
     display: block;
-	font-family: 'Pacifico', cursive;
+    font-family: 'Pacifico', cursive;
     font-size: 0.85rem;
     letter-spacing: 3px;
     color: #a87585;
-  }
-
-  /* TIÊU ĐỀ CHÍNH */
-  h1 {
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-    margin: 1.5rem 0;
+    margin-top: 0;
+    margin-bottom: 2rem;
   }
 
   /* NỘI DUNG GIỚI THIỆU */
@@ -134,6 +166,14 @@ import { pathFor } from '../data/navigation';
 
   .welcome p:last-of-type {
     margin-bottom: 2rem;
+  }
+
+  .nie-intro {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 3;
+    color: #555;
   }
 
   /* NÚT KHÁM PHÁ */
@@ -171,33 +211,55 @@ import { pathFor } from '../data/navigation';
     display: block;
     text-decoration: none;
     color: inherit;
-    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease;
   }
-  .card:hover, .card:focus-visible {
+
+  .card:hover,
+  .card:focus-visible {
     transform: translateY(-4px);
     background: #ffeff2;
     box-shadow: 0 8px 22px rgba(168,117,133,.12);
   }
-  .card:focus-visible { outline: 2px solid #a87585; outline-offset: 3px; }
 
+  .card:focus-visible {
+    outline: 2px solid #a87585;
+    outline-offset: 3px;
+  }
+
+  /* BIỂU TƯỢNG */
   .card span {
     font-size: 2.5rem;
   }
 
+  /* TIÊU ĐỀ CHUYÊN MỤC */
   .card h3 {
     margin: 1rem 0;
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.6;
   }
 
+  /* MÔ TẢ CHUYÊN MỤC */
   .card p {
-    line-height: 1.7;
-    color: #555;
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 2.5;
+    color: #555555;
   }
 
+  /* MÁY TÍNH BẢNG */
   @media (max-width: 950px) and (min-width: 721px) {
-    .cards { grid-template-columns: repeat(2, 1fr); }
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
-  /* GIAO DIỆN ĐIỆN THOẠI */
+  /* ĐIỆN THOẠI */
   @media (max-width: 720px) {
     .cards {
       grid-template-columns: 1fr;
@@ -207,41 +269,4 @@ import { pathFor } from '../data/navigation';
       padding: 3rem 0;
     }
   }
-  /* FONT CHỮ CHO ĐOẠN GIỚI THIỆU NIE */
-.nie-intro {
-    font-family: 'Playwrite FR Moderne', cursive;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 3;
-    color: #555;
-}
-/* FONT PACIFICO CHO TIÊU ĐỀ NIE */
-.nie-title {
-    font-family: 'Pacifico', cursive;
-    font-size: 60px;
-    font-weight: 400;
-    line-height: 1.4;
-    color: #222222;
-	margin-bottom: 0.2rem;
-}
-/* KHOẢNG CÁCH DÒNG CHÀO MỪNG */
-.eyebrow {
-    margin-top: 0;
-    margin-bottom: 2rem;
-}
-/* Font Pacifico cho 6 tiêu đề chuyên mục */
-.cards h3 {
-    font-family: 'Pacifico', cursive;
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 1.6;
-}
-/* Font Playwrite FR Moderne cho mô tả 6 chuyên mục */
-.cards .card p {
-    font-family: 'Playwrite FR Moderne', cursive;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 2.5;
-    color: #555555;
-}
 </style>
