@@ -1,0 +1,271 @@
+
+---
+import SectionLayout from '../../layouts/SectionLayout.astro';
+import { pathFor } from '../../data/navigation';
+
+const categories = [
+  {
+    icon: '☕',
+    title: 'Gom chuyện đời',
+    description:
+      'Những mẩu chuyện nhỏ nhặt trong cuộc sống, đôi khi là chuyện tớ trải qua, đôi khi là điều tình cờ nghe thấy được.',
+    href: 'ngoi-nghe-nie-ke/gom-chuyen-doi',
+  },
+  {
+    icon: '🖋️',
+    title: 'Viết vu vơ',
+    description:
+      'Đôi dòng tâm sự về những niềm vui, nỗi buồn, những suy nghĩ bất chợt và những điều tớ học được từ cuộc sống. Có khi là sẻ chia, và cũng có lúc là trải lòng.',
+    href: 'ngoi-nghe-nie-ke/viet-vu-vo',
+  },
+  {
+    icon: '📜',
+    title: 'Ngăn ký ức',
+    description:
+      'Một ngăn nhỏ dành cho những kỷ niệm cùng bạn bè, những câu chuyện nơi học tập, công việc và những người đã đi qua cuộc đời tớ.',
+    href: 'ngoi-nghe-nie-ke/ngan-ky-uc',
+  },
+];
+---
+
+<SectionLayout title="🌷 Ngồi nghe Nie kể" description="">
+  <section class="story-intro">
+    <div class="intro-decoration" aria-hidden="true">
+      ✨ 💌 ✨
+    </div>
+
+    <p>
+      Có những chuyện nhỏ xíu, những điều khó nói thành lời
+      và những ký ức chẳng nỡ quên...
+    </p>
+  </section>
+
+  <div class="section-divider" aria-hidden="true">
+    <span></span>
+    <span>🌸</span>
+    <span></span>
+  </div>
+
+  <section class="story-grid" aria-label="Các chuyên mục câu chuyện">
+    {categories.map((category) => (
+      <a class="story-card" href={pathFor(category.href)}>
+        <span class="card-icon" aria-hidden="true">
+          {category.icon}
+        </span>
+
+        <h2>{category.title}</h2>
+        <p>{category.description}</p>
+
+        <span class="card-arrow" aria-hidden="true">
+          Khám phá →
+        </span>
+      </a>
+    ))}
+  </section>
+
+  <div class="story-footer" aria-hidden="true">
+    🌸 ✨ 🌸
+  </div>
+
+  <div class="back-link">
+    <a href={pathFor('')}>← Trở lại Trang chủ</a>
+  </div>
+</SectionLayout>
+
+<style>
+  /* PHẦN GIỚI THIỆU */
+
+  .story-intro {
+    max-width: 1000px;
+    margin: 0 auto 44px;
+    text-align: center;
+  }
+
+  .intro-decoration {
+    font-size: 23px;
+    letter-spacing: 12px;
+    margin-bottom: 22px;
+  }
+
+  .story-intro p {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 2.2;
+    color: #555555;
+    margin: 0;
+  }
+
+  /* ĐƯỜNG PHÂN CÁCH */
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    max-width: 350px;
+    margin: 0 auto 36px;
+  }
+
+  .section-divider span:first-child,
+  .section-divider span:last-child {
+    height: 1px;
+    flex: 1;
+    background: #e9cfd8;
+  }
+
+  .section-divider span:nth-child(2) {
+    font-size: 23px;
+  }
+
+  /* BA THẺ CHUYÊN MỤC */
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .story-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 24px 26px;
+    background: #fff7f9;
+    border: 1px solid #f1dfe5;
+    border-radius: 18px;
+    text-align: center;
+    text-decoration: none;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+  }
+
+  .story-card:hover {
+    transform: translateY(-5px);
+    background: #fff1f5;
+    box-shadow: 0 10px 28px rgba(120, 70, 90, 0.1);
+  }
+
+  .story-card:focus-visible {
+    outline: 3px solid #a26c7e;
+    outline-offset: 4px;
+  }
+
+  /* BIỂU TƯỢNG */
+
+  .card-icon {
+    font-size: 37px;
+    line-height: 1.4;
+    margin-bottom: 18px;
+    transition: transform 0.25s ease;
+  }
+
+  .story-card:hover .card-icon {
+    transform: rotate(-6deg) scale(1.1);
+  }
+
+  /* TIÊU ĐỀ CHUYÊN MỤC */
+
+  .story-card h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #704b5b;
+    margin: 0 0 20px;
+  }
+
+  /* MÔ TẢ CHUYÊN MỤC */
+
+  .story-card p {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 2;
+    color: #555555;
+    margin: 0 0 24px;
+  }
+
+  /* LIÊN KẾT KHÁM PHÁ */
+
+  .card-arrow {
+    margin-top: auto;
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 13px;
+    color: #a26c7e;
+    transition: transform 0.2s ease;
+  }
+
+  .story-card:hover .card-arrow {
+    transform: translateX(4px);
+  }
+
+  /* TRANG TRÍ CUỐI TRANG */
+
+  .story-footer {
+    text-align: center;
+    margin-top: 44px;
+    font-size: 19px;
+    letter-spacing: 12px;
+  }
+
+  /* LIÊN KẾT TRỞ LẠI */
+
+  .back-link {
+    margin: 38px auto 24px;
+    text-align: center;
+  }
+
+  .back-link a {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #a26c7e;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .back-link a:hover {
+    color: #704b5b;
+  }
+
+  .back-link a:focus-visible {
+    outline: 2px solid #a26c7e;
+    outline-offset: 5px;
+  }
+
+  /* TABLET */
+
+  @media (max-width: 900px) {
+    .story-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  /* ĐIỆN THOẠI */
+
+  @media (max-width: 640px) {
+    .story-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .story-intro p {
+      font-size: 16px;
+    }
+
+    .story-card {
+      padding: 28px 20px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .story-card,
+    .card-icon,
+    .card-arrow {
+      transition: none;
+    }
+  }
+</style>

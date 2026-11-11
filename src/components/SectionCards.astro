@@ -1,0 +1,28 @@
+---
+import { pathFor } from '../data/navigation';
+interface Item {label:string;slug:string;description?:string;}
+const {items} = Astro.props as {items:Item[]};
+---
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playwrite+FR+Moderne:wght@100..400&display=swap"
+/>
+<div class="section-grid">{items.map(item => <a class="section-card" href={pathFor(item.slug)}><h2>{item.label} <span aria-hidden="true">↗</span></h2><p>{item.description || 'Mở chuyên mục và khám phá những bài viết ở đây.'}</p></a>)}</div>
+<style>
+.section-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.section-card{display:block;text-decoration:none;border:1px solid #f0e0e5;background:#fff9fa;border-radius:18px;padding:28px 23px;transition:transform .2s,box-shadow .2s}.section-card:hover,.section-card:focus-visible{transform:translateY(-3px);box-shadow:0 9px 22px #5d455018}.section-card h2{font-size:1.18rem;color:#704b5b;margin:0 0 12px}.section-card h2 span{font-size:.9rem;color:#b88c9a}.section-card p{font-size:.95rem;color:#766c70;line-height:1.7;margin:0}@media(max-width:760px){.section-grid{grid-template-columns:1fr}}
+/* Font Pacifico cho tiêu đề chuyên mục */
+/* Font Pacifico cho 6 tiêu đề chuyên mục */
+.section-card h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.section-card p {
+  font-family: 'Playwrite FR Moderne', cursive;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+</style>

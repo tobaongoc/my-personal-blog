@@ -1,0 +1,250 @@
+
+---
+import SectionLayout from '../../layouts/SectionLayout.astro';
+import { pathFor } from '../../data/navigation';
+
+const categories = [
+  {
+    icon: '🧳',
+    title: 'Mang chuyện đường xa về kể',
+    description:
+      'Tớ đi thật xa, nhặt nhạnh đôi ba chuyện, gom góp một chút thương. Những điều chẳng thể mang về trong hành lý, tớ gửi tạm ở đây.',
+    href: 'the-gioi-trong-mat-nie/mang-chuyen-duong-xa-ve-ke',
+  },
+  {
+    icon: '🗺️',
+    title: 'Nơi dấu chân dừng lại',
+    description:
+      'Tớ đi qua những miền đất lạ, để lại đôi ba dấu chân.',
+    href: 'the-gioi-trong-mat-nie/noi-dau-chan-dung-lai',
+  },
+  {
+    icon: '📷',
+    title: 'Qua ống kính của Nie',
+    description:
+      'Tớ chụp lại hôm nay, bởi ngày mai chúng mình đã chẳng còn trẻ như thế nữa.',
+    href: 'the-gioi-trong-mat-nie/qua-ong-kinh-cua-nie',
+  },
+];
+---
+
+<SectionLayout title="🌍 Thế giới trong mắt Nie" description="">
+  <section class="travel-intro">
+    <div class="intro-decoration" aria-hidden="true">
+      ✨ 🌷 ✨
+    </div>
+
+    <p>
+      Mỗi nơi đặt chân đến là một lần tớ được ngắm nhìn thế giới
+      bằng đôi mắt mới, gặp gỡ những con người thú vị<br />
+      khám phá bao điều chưa biết và gom góp thêm chút kỷ niệm
+      vào hành trang tuổi trẻ.
+    </p>
+
+    <p>
+      Có những nơi chỉ ghé qua một lần, nhưng cảnh sắc,
+      con người và những rung động nơi ấy<br />
+      sẽ còn ở lại thật lâu trong ký ức.
+    </p>
+  </section>
+
+  <div class="section-divider" aria-hidden="true">
+    <span></span>
+    <span>✈️</span>
+    <span></span>
+  </div>
+
+  <section class="travel-grid" aria-label="Các chuyên mục du lịch">
+    {categories.map((category) => (
+      <a class="travel-card" href={pathFor(category.href)}>
+        <span class="card-icon" aria-hidden="true">
+          {category.icon}
+        </span>
+        <h2>{category.title}</h2>
+        <p>{category.description}</p>
+        <span class="card-arrow" aria-hidden="true">
+          Khám phá →
+        </span>
+      </a>
+    ))}
+  </section>
+
+  <div class="travel-footer" aria-hidden="true">
+    🌸 ✨ 🌸
+  </div>
+
+  <div class="back-link">
+    <a href={pathFor('')}>← Trở lại Trang chủ</a>
+  </div>
+</SectionLayout>
+
+<style>
+  .travel-intro {
+    max-width: 1000px;
+    margin: 0 auto 44px;
+    text-align: center;
+  }
+
+  .intro-decoration {
+    font-size: 23px;
+    letter-spacing: 12px;
+    margin-bottom: 22px;
+  }
+
+  .travel-intro p {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 2.2;
+    color: #555555;
+    margin: 0 0 18px;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 0 auto 36px;
+    max-width: 350px;
+  }
+
+  .section-divider span:first-child,
+  .section-divider span:last-child {
+    height: 1px;
+    flex: 1;
+    background: #e9cfd8;
+  }
+
+  .section-divider span:nth-child(2) {
+    font-size: 23px;
+  }
+
+  .travel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .travel-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 24px 26px;
+    background: #fff7f9;
+    border: 1px solid #f1dfe5;
+    border-radius: 18px;
+    text-align: center;
+    text-decoration: none;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+  }
+
+  .travel-card:hover {
+    transform: translateY(-5px);
+    background: #fff1f5;
+    box-shadow: 0 10px 28px rgba(120, 70, 90, 0.1);
+  }
+
+  .travel-card:focus-visible {
+    outline: 3px solid #a26c7e;
+    outline-offset: 4px;
+  }
+
+  .card-icon {
+    font-size: 37px;
+    line-height: 1.4;
+    margin-bottom: 18px;
+    transition: transform 0.25s ease;
+  }
+
+  .travel-card:hover .card-icon {
+    transform: translateY(-4px) rotate(-5deg);
+  }
+
+  .travel-card h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #704b5b;
+    margin: 0 0 20px;
+  }
+
+  .travel-card p {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 2;
+    color: #555555;
+    margin: 0 0 24px;
+  }
+
+  .card-arrow {
+    margin-top: auto;
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 13px;
+    color: #a26c7e;
+    transition: transform 0.2s ease;
+  }
+
+  .travel-card:hover .card-arrow {
+    transform: translateX(4px);
+  }
+
+  .travel-footer {
+    text-align: center;
+    margin-top: 44px;
+    font-size: 19px;
+    letter-spacing: 12px;
+  }
+
+  .back-link {
+    margin: 38px auto 24px;
+    text-align: center;
+  }
+
+  .back-link a {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #a26c7e;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .back-link a:hover {
+    color: #704b5b;
+  }
+
+  @media (max-width: 900px) {
+    .travel-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .travel-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .travel-intro p {
+      font-size: 16px;
+    }
+
+    .travel-card {
+      padding: 28px 20px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .travel-card,
+    .card-icon,
+    .card-arrow {
+      transition: none;
+    }
+  }
+</style>

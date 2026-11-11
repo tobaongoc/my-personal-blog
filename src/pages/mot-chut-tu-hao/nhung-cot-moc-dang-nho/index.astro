@@ -1,0 +1,83 @@
+
+---
+import SectionLayout from '../../../layouts/SectionLayout.astro';
+import { pathFor } from '../../../data/navigation';
+---
+
+<SectionLayout
+  title="💗 Những cột mốc đáng nhớ"
+  description="Những khoảnh khắc đáng nhớ trên hành trình trưởng thành."
+>
+  <section class="child-page">
+    <div class="decoration" aria-hidden="true">
+      ✨ 💗 🌻 ✨
+    </div>
+
+    <div class="empty-note">
+      <p>Trang này đang chờ những bài viết đầu tiên của Nie. 🌷</p>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-decoration" aria-hidden="true">
+        🌻 ✨ 🌻
+      </div>
+
+      <a href={pathFor('mot-chut-tu-hao')} class="back-link">
+        ← Trở lại Một chút tự hào
+      </a>
+    </div>
+  </section>
+</SectionLayout>
+
+<style>
+  .child-page {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .decoration {
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 10px;
+    margin: 0 auto 40px;
+  }
+
+  .empty-note {
+    text-align: center;
+    padding: 48px 24px;
+    border: 1px dashed #e9cfd8;
+    border-radius: 20px;
+    background: #fffafd;
+  }
+
+  .empty-note p {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 17px;
+    line-height: 2;
+    color: #76636c;
+    margin: 0;
+  }
+
+  .page-footer {
+    text-align: center;
+    margin: 42px auto 28px;
+  }
+
+  .footer-decoration {
+    font-size: 20px;
+    letter-spacing: 10px;
+    margin-bottom: 24px;
+  }
+
+  .back-link {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    color: #a26c7e;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .back-link:hover {
+    color: #704b5b;
+  }
+</style>

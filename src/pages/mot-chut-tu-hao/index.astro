@@ -1,0 +1,304 @@
+
+---
+import SectionLayout from '../../layouts/SectionLayout.astro';
+import { pathFor } from '../../data/navigation';
+
+const categories = [
+  {
+    title: 'Thành tựu học tập',
+    icon: '🎓',
+    description: 'Những thành quả trên hành trình học tập của tớ.',
+    slug: 'thanh-tuu-hoc-tap',
+  },
+  {
+    title: 'Vượt qua chính mình',
+    icon: '🌱',
+    description: 'Những lần tớ đã cố gắng và vượt qua chính mình.',
+    slug: 'vuot-qua-chinh-minh',
+  },
+  {
+    title: 'Những cột mốc đáng nhớ',
+    icon: '💗',
+    description: 'Những khoảnh khắc đáng nhớ trên hành trình trưởng thành.',
+    slug: 'nhung-cot-moc-dang-nho',
+  },
+];
+---
+
+<SectionLayout title="🌻 Một chút tự hào" description="">
+  <section class="pride-page">
+
+    <!-- BIỂU TƯỢNG TRANG TRÍ -->
+
+    <div class="pride-decoration" aria-hidden="true">
+      ✨ 🌻 ✨
+    </div>
+
+    <!-- PHẦN GIỚI THIỆU -->
+
+    <div class="pride-intro">
+      <p>
+        Có những thành quả thật lớn lao, cũng có những cột mốc thật nhỏ bé.<br />
+        Nhưng mỗi điều đều là một phần đáng nhớ trên hành trình trưởng thành của tớ.
+      </p>
+
+      <p>
+        Tớ muốn lưu giữ ở đây những nỗ lực đã được đền đáp,<br />
+        những lần vượt qua chính mình và cả những khoảnh khắc khiến tớ mỉm cười khi nhìn lại.
+      </p>
+    </div>
+
+    <!-- ĐƯỜNG PHÂN CÁCH -->
+
+    <div class="section-divider" aria-hidden="true">
+      <span></span>
+      <span>🌻</span>
+      <span></span>
+    </div>
+
+    <!-- BA CHUYÊN MỤC -->
+
+    <section class="pride-grid" aria-label="Các chuyên mục tự hào">
+      {categories.map((category) => (
+        <a
+          class="pride-card"
+          href={pathFor(`mot-chut-tu-hao/${category.slug}`)}
+        >
+          <span class="card-icon" aria-hidden="true">
+            {category.icon}
+          </span>
+
+          <h2>{category.title}</h2>
+
+          <p>{category.description}</p>
+
+          <span class="card-arrow" aria-hidden="true">
+            Khám phá →
+          </span>
+        </a>
+      ))}
+    </section>
+
+    <!-- TRỞ LẠI TRANG CHỦ -->
+
+    <div class="pride-footer">
+      <div class="footer-decoration" aria-hidden="true">
+        🌻 ✨ 🌻
+      </div>
+
+      <a class="back-link" href={pathFor('')}>
+        ← Trở lại Trang chủ
+      </a>
+    </div>
+
+  </section>
+</SectionLayout>
+
+<style>
+  .pride-page {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .pride-decoration {
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 10px;
+    margin: 0 auto 28px;
+  }
+
+  .pride-intro {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+
+  .pride-intro p {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 2.2;
+    color: #555555;
+    margin: 0;
+  }
+
+  .pride-intro p + p {
+    margin-top: 36px;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    max-width: 350px;
+    margin: 0 auto 40px;
+  }
+
+  .section-divider span:first-child,
+  .section-divider span:last-child {
+    height: 1px;
+    flex: 1;
+    background: #e9cfd8;
+  }
+
+  .section-divider span:nth-child(2) {
+    font-size: 23px;
+  }
+
+  .pride-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+  }
+
+  .pride-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 300px;
+    padding: 32px 24px 26px;
+    background: #fff7f9;
+    border: 1px solid #f1dfe5;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+  }
+
+  .pride-card:hover {
+    transform: translateY(-5px);
+    background: #fff1f5;
+    box-shadow: 0 10px 28px rgba(120, 70, 90, 0.1);
+  }
+
+  .pride-card:focus-visible {
+    outline: 3px solid #a26c7e;
+    outline-offset: 4px;
+  }
+
+  .card-icon {
+    font-size: 34px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    transition: transform 0.25s ease;
+  }
+
+  .pride-card:hover .card-icon {
+    transform: scale(1.12) rotate(-5deg);
+  }
+
+  .pride-card h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #704b5b;
+    margin: 0 0 16px;
+    text-align: center;
+  }
+
+  .pride-card p {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 2;
+    color: #555555;
+    margin: 0 0 22px;
+    text-align: center;
+  }
+
+  .card-arrow {
+    margin-top: auto;
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 13px;
+    color: #a26c7e;
+    transition: transform 0.2s ease;
+  }
+
+  .pride-card:hover .card-arrow {
+    transform: translateX(4px);
+  }
+
+  .pride-footer {
+    margin: 44px auto 28px;
+    text-align: center;
+  }
+
+  .footer-decoration {
+    font-size: 20px;
+    letter-spacing: 10px;
+    margin-bottom: 24px;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #a26c7e;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .back-link:hover {
+    color: #704b5b;
+  }
+
+  .back-link:focus-visible {
+    outline: 2px solid #a26c7e;
+    outline-offset: 5px;
+  }
+
+  @media (max-width: 900px) {
+    .pride-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pride-intro p {
+      font-size: 17px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .pride-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pride-intro p {
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    .pride-intro p + p {
+      margin-top: 24px;
+    }
+
+    .pride-card {
+      min-height: 250px;
+      padding: 28px 20px;
+    }
+
+    .pride-decoration {
+      font-size: 20px;
+      letter-spacing: 5px;
+    }
+
+    .pride-card h2 {
+      font-size: 25px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pride-card,
+    .card-icon,
+    .card-arrow {
+      transition: none;
+    }
+  }
+</style>

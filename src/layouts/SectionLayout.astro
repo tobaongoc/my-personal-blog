@@ -1,0 +1,50 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+interface Props { title: string; description: string; }
+const {title, description} = Astro.props;
+---
+
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playwrite+FR+Moderne:wght@100..400&display=swap"
+/>
+
+<!doctype html><html lang="vi"><head><BaseHead title={`${title} | ${SITE_TITLE}`} description={description}/></head><body><Header/><main class="section-page"><div class="intro"><p class="kicker">GÓC NHỎ CỦA NIE</p><h1>{title}</h1><p>{description}</p></div><slot/></main><Footer/></body></html>
+<style>
+.section-page {width:min(1050px,calc(100% - 36px));margin:0 auto;padding:65px 0 90px;min-height:65vh;}
+.intro{text-align:center;margin-bottom:38px}.kicker{font-size:.76rem;letter-spacing:.2em;color:#ae8190}.intro h1{font-size:clamp(2rem,4vw,3rem);color:#5b414c;margin:12px 0}.intro p:last-child{max-width:700px;margin:auto;color:#70656a;line-height:1.9}
+
+/* Font cho dòng GÓC NHỎ CỦA NIE */
+.kicker {
+    font-family: 'Pacifico', cursive;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+/* Font cho tiêu đề Đôi điều về Nie */
+.intro h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.5;
+    
+}
+
+/* Font và định dạng đoạn giới thiệu – Hành trình kiếm con chữ */
+.intro p {
+  font-family: 'Playwrite FR Moderne', cursive;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 2;
+  color: #555555;
+  max-width: 750px;
+  margin: 0 auto 24px;
+  white-space: pre-line;
+}
+
+</style>

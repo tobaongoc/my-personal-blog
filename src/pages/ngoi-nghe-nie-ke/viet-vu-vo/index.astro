@@ -1,0 +1,182 @@
+
+---
+import SectionLayout from '../../../layouts/SectionLayout.astro';
+import { pathFor } from '../../../data/navigation';
+---
+
+<SectionLayout title="🖋️ Viết vu vơ" description="">
+  <section class="story-page">
+
+    <div class="decoration" aria-hidden="true">
+      ✨ 💌 ✨
+    </div>
+
+    <p class="intro">
+      Đôi dòng tâm sự về những niềm vui, nỗi buồn,<br />
+      những suy nghĩ bất chợt và những điều tớ học được từ cuộc sống.<br />
+      Có khi là sẻ chia, và cũng có lúc là trải lòng.
+    </p>
+
+    <div class="divider" aria-hidden="true">
+      <span></span>
+      <span>🌷</span>
+      <span></span>
+    </div>
+
+    <section class="posts" aria-label="Danh sách bài viết">
+      <div class="empty">
+        <span class="empty-icon" aria-hidden="true">
+          📝
+        </span>
+
+        <h2>Đôi dòng vu vơ đang chờ được viết...</h2>
+
+        <p>
+          Có những cảm xúc chẳng biết gửi cho ai,
+          nên tớ gửi lại nơi góc nhỏ này. 💗
+        </p>
+      </div>
+    </section>
+
+    <div class="back-link">
+      <a href={pathFor('ngoi-nghe-nie-ke')}>
+        ← Trở lại Ngồi nghe Nie kể
+      </a>
+    </div>
+
+  </section>
+</SectionLayout>
+
+<style>
+  /* KHUNG TRANG */
+
+  .story-page {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  /* BIỂU TƯỢNG TRANG TRÍ */
+
+  .decoration {
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 10px;
+    margin-bottom: 25px;
+  }
+
+  /* PHẦN GIỚI THIỆU */
+
+  .intro {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto 42px;
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 2.2;
+    color: #555555;
+    text-align: center;
+  }
+
+  /* ĐƯỜNG PHÂN CÁCH */
+
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    max-width: 350px;
+    margin: 0 auto 38px;
+  }
+
+  .divider span:first-child,
+  .divider span:last-child {
+    height: 1px;
+    flex: 1;
+    background: #e9cfd8;
+  }
+
+  .divider span:nth-child(2) {
+    font-size: 23px;
+  }
+
+  /* KHUNG CHỜ BÀI VIẾT */
+
+  .posts {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .empty {
+    background: #fff7f9;
+    border: 1px dashed #e9cfd8;
+    border-radius: 20px;
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .empty-icon {
+    display: block;
+    font-size: 36px;
+    margin-bottom: 18px;
+  }
+
+  .empty h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 23px;
+    font-weight: 400;
+    color: #704b5b;
+    margin: 0 0 18px;
+  }
+
+  .empty p {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 16px;
+    line-height: 2;
+    color: #555555;
+    margin: 0;
+  }
+
+  /* LIÊN KẾT TRỞ LẠI */
+
+  .back-link {
+    margin: 42px auto 24px;
+    text-align: center;
+  }
+
+  .back-link a {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #a26c7e;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .back-link a:hover {
+    color: #704b5b;
+  }
+
+  .back-link a:focus-visible {
+    outline: 2px solid #a26c7e;
+    outline-offset: 5px;
+  }
+
+  /* GIAO DIỆN ĐIỆN THOẠI */
+
+  @media (max-width: 640px) {
+    .intro {
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    .empty {
+      padding: 36px 18px;
+    }
+
+    .empty h2 {
+      font-size: 20px;
+    }
+  }
+</style>

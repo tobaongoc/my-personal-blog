@@ -1,0 +1,324 @@
+
+---
+import SectionLayout from '../../layouts/SectionLayout.astro';
+import { pathFor } from '../../data/navigation';
+
+const stages = [
+  {
+    title: 'Cử nhân',
+    icon: '🎓',
+    description:
+      'Cử nhân — những câu chuyện được lưu giữ trong góc nhỏ của Nie.',
+    slug: 'cu-nhan',
+  },
+  {
+    title: 'Thạc sĩ',
+    icon: '📚',
+    description:
+      'Thạc sĩ — những câu chuyện được lưu giữ trong góc nhỏ của Nie.',
+    slug: 'thac-si',
+  },
+  {
+    title: 'Tiến sĩ',
+    icon: '🔬',
+    description:
+      'Tiến sĩ — những câu chuyện được lưu giữ trong góc nhỏ của Nie.',
+    slug: 'tien-si',
+  },
+];
+---
+
+<SectionLayout title="🎓 Hành trình kiếm con chữ" description="">
+  <section class="study-page">
+
+    <!-- BIỂU TƯỢNG TRANG TRÍ -->
+
+    <div class="study-decoration" aria-hidden="true">
+      ✨ 📖 ✨
+    </div>
+
+    <!-- PHẦN GIỚI THIỆU -->
+
+    <div class="study-intro">
+      <p>
+        Hành trình này chưa bao giờ là dễ dàng,<br />
+        từng chặng đường tớ vượt qua, có nụ nước mắt của sự bất lực trước khó khăn<br />
+        và cũng có nụ cười của thành tựu tớ đạt được khi vượt qua khó khăn ấy.
+      </p>
+    </div>
+
+    <!-- ĐƯỜNG PHÂN CÁCH -->
+
+    <div class="section-divider" aria-hidden="true">
+      <span></span>
+      <span>🌷</span>
+      <span></span>
+    </div>
+
+    <!-- BA GIAI ĐOẠN HỌC TẬP -->
+
+    <section class="study-grid" aria-label="Các giai đoạn học tập">
+      {stages.map((stage) => (
+        <a
+          class="study-card"
+          href={pathFor(`hanh-trinh-kiem-con-chu/${stage.slug}`)}
+        >
+          <span class="card-icon" aria-hidden="true">
+            {stage.icon}
+          </span>
+
+          <h2>{stage.title}</h2>
+
+          <p>{stage.description}</p>
+
+          <span class="card-arrow" aria-hidden="true">
+            Khám phá →
+          </span>
+        </a>
+      ))}
+    </section>
+
+    <!-- TRỞ LẠI TRANG CHỦ -->
+
+    <div class="study-footer">
+      <div class="footer-decoration" aria-hidden="true">
+        🌸 ✨ 🌸
+      </div>
+
+      <a class="back-link" href={pathFor('')}>
+        ← Trở lại Trang chủ
+      </a>
+    </div>
+
+  </section>
+</SectionLayout>
+
+<style>
+  /* KHUNG TRANG */
+
+  .study-page {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* BIỂU TƯỢNG TRANG TRÍ */
+
+  .study-decoration {
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 10px;
+    margin: 0 auto 28px;
+  }
+
+  /* PHẦN GIỚI THIỆU */
+
+  .study-intro {
+    max-width: 1200px;
+    margin: 0 auto 36px;
+    text-align: center;
+  }
+
+  .study-intro p {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 2.2;
+    color: #555555;
+    margin: 0;
+  }
+
+  /* ĐƯỜNG PHÂN CÁCH */
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    max-width: 350px;
+    margin: 0 auto 40px;
+  }
+
+  .section-divider span:first-child,
+  .section-divider span:last-child {
+    height: 1px;
+    flex: 1;
+    background: #e9cfd8;
+  }
+
+  .section-divider span:nth-child(2) {
+    font-size: 23px;
+  }
+
+  /* LƯỚI CÁC GIAI ĐOẠN */
+
+  .study-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+  }
+
+  /* THẺ GIAI ĐOẠN */
+
+  .study-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 300px;
+    padding: 32px 24px 26px;
+    background: #fff7f9;
+    border: 1px solid #f1dfe5;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+  }
+
+  .study-card:hover {
+    transform: translateY(-5px);
+    background: #fff1f5;
+    box-shadow: 0 10px 28px rgba(120, 70, 90, 0.1);
+  }
+
+  .study-card:focus-visible {
+    outline: 3px solid #a26c7e;
+    outline-offset: 4px;
+  }
+
+  /* BIỂU TƯỢNG */
+
+  .card-icon {
+    font-size: 34px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    transition: transform 0.25s ease;
+  }
+
+  .study-card:hover .card-icon {
+    transform: scale(1.12) rotate(-5deg);
+  }
+
+  /* TÊN GIAI ĐOẠN */
+
+  .study-card h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 29px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #704b5b;
+    margin: 0 0 16px;
+    text-align: center;
+  }
+
+  /* MÔ TẢ */
+
+  .study-card p {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 2;
+    color: #555555;
+    margin: 0 0 22px;
+    text-align: center;
+  }
+
+  /* CHỮ KHÁM PHÁ */
+
+  .card-arrow {
+    margin-top: auto;
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 13px;
+    color: #a26c7e;
+    transition: transform 0.2s ease;
+  }
+
+  .study-card:hover .card-arrow {
+    transform: translateX(4px);
+  }
+
+  /* CUỐI TRANG */
+
+  .study-footer {
+    margin: 44px auto 28px;
+    text-align: center;
+  }
+
+  .footer-decoration {
+    font-size: 20px;
+    letter-spacing: 10px;
+    margin-bottom: 24px;
+  }
+
+  /* LIÊN KẾT TRỞ LẠI */
+
+  .back-link {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #a26c7e;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .back-link:hover {
+    color: #704b5b;
+  }
+
+  .back-link:focus-visible {
+    outline: 2px solid #a26c7e;
+    outline-offset: 5px;
+  }
+
+  /* TABLET */
+
+  @media (max-width: 900px) {
+    .study-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .study-intro p {
+      font-size: 17px;
+    }
+  }
+
+  /* ĐIỆN THOẠI */
+
+  @media (max-width: 640px) {
+    .study-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .study-intro p {
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    .study-card {
+      min-height: 250px;
+      padding: 28px 20px;
+    }
+
+    .study-decoration {
+      font-size: 20px;
+      letter-spacing: 5px;
+    }
+
+    .study-card h2 {
+      font-size: 26px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .study-card,
+    .card-icon,
+    .card-arrow {
+      transition: none;
+    }
+  }
+</style>

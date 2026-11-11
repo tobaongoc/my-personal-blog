@@ -1,0 +1,226 @@
+
+---
+import SectionLayout from '../../layouts/SectionLayout.astro';
+import { pathFor } from '../../data/navigation';
+---
+
+<SectionLayout title="Đôi điều về Nie" description="">
+  <section class="about-page">
+
+    <!-- PHẦN GIỚI THIỆU -->
+
+    <div class="about-intro">
+      <p>
+        Một chút về tớ, những điều tớ yêu, những thứ tớ làm<br />
+        và sự ra đời của 'góc nhỏ'.
+      </p>
+    </div>
+
+    <!-- BIỂU TƯỢNG TRANG TRÍ -->
+
+    <div class="about-decoration" aria-hidden="true">
+      ✨ 🌷 💌 🌷 ✨
+    </div>
+
+    <!-- KHUNG GIỚI THIỆU VỀ NIE -->
+
+    <section class="about-card">
+      <h2>Nie chào cậu! 🌷</h2>
+
+      <div class="about-icon" aria-hidden="true">
+        🧸 🌸
+      </div>
+
+      <p>
+        Góc nhỏ này là nơi để lưu giữ những cảm xúc chưa thành lời,
+        những khoảnh khắc không thể trở lại và hành trình trưởng thành của tớ.
+      </p>
+
+      <p>
+        Những câu chuyện về bản thân và sở thích sẽ được tớ viết thêm ở đây.
+      </p>
+    </section>
+
+    <!-- TRANG TRÍ VÀ LIÊN KẾT TRỞ LẠI -->
+
+    <div class="about-footer">
+      <div class="footer-decoration" aria-hidden="true">
+        🌸 ✨ 🌸
+      </div>
+
+      <a class="back-link" href={pathFor('')}>
+        ← Trở lại Trang chủ
+      </a>
+    </div>
+
+  </section>
+</SectionLayout>
+
+<style>
+  /* KHUNG TRANG */
+
+  .about-page {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* PHẦN GIỚI THIỆU */
+
+  .about-intro {
+    max-width: 1000px;
+    margin: 0 auto 36px;
+    text-align: center;
+  }
+
+  .about-intro p {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 2.2;
+    color: #555555;
+    margin: 0;
+  }
+
+  /* BIỂU TƯỢNG TRANG TRÍ */
+
+  .about-decoration {
+    text-align: center;
+    font-size: 23px;
+    letter-spacing: 10px;
+    margin: 0 auto 36px;
+  }
+
+  /* KHUNG GIỚI THIỆU */
+
+  .about-card {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 44px 48px;
+    background: #fff7f9;
+    border-radius: 24px;
+  }
+
+  /* TIÊU ĐỀ TRONG KHUNG */
+
+  .about-card h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #985f74;
+    margin: 0 0 12px;
+  }
+
+  /* BIỂU TƯỢNG TRONG KHUNG */
+
+  .about-icon {
+    font-size: 26px;
+    margin-bottom: 18px;
+  }
+
+  /* NỘI DUNG TRONG KHUNG */
+
+  .about-card p {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 2.2;
+    color: #555555;
+    margin: 0 0 24px;
+  }
+
+  .about-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* CUỐI TRANG */
+
+  .about-footer {
+    margin: 42px auto 28px;
+    text-align: center;
+  }
+
+  .footer-decoration {
+    font-size: 20px;
+    letter-spacing: 10px;
+    margin-bottom: 24px;
+  }
+
+  /* LIÊN KẾT TRỞ LẠI */
+
+  .back-link {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #a26c7e;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: #704b5b;
+  }
+
+  .back-link:focus-visible {
+    outline: 2px solid #a26c7e;
+    outline-offset: 5px;
+  }
+
+  /* TABLET */
+
+  @media (max-width: 900px) {
+    .about-card {
+      padding: 36px 30px;
+    }
+
+    .about-card h2 {
+      font-size: 30px;
+    }
+  }
+
+  /* ĐIỆN THOẠI */
+
+  @media (max-width: 640px) {
+    .about-intro p {
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    .about-decoration {
+      font-size: 19px;
+      letter-spacing: 5px;
+      margin-bottom: 28px;
+    }
+
+    .about-card {
+      padding: 28px 22px;
+      border-radius: 18px;
+    }
+
+    .about-card h2 {
+      font-size: 26px;
+    }
+
+    .about-card p {
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    .about-icon {
+      font-size: 23px;
+    }
+
+    .about-footer {
+      margin-top: 32px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .back-link {
+      transition: none;
+    }
+  }
+</style>

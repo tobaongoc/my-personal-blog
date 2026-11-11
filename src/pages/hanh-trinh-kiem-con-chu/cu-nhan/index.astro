@@ -1,0 +1,73 @@
+
+---
+import SectionLayout from '../../../layouts/SectionLayout.astro';
+import { pathFor } from '../../../data/navigation';
+---
+
+<SectionLayout title="🎓 Cử nhân" description="">
+  <section class="subpage">
+    <p class="intro">
+      Những năm tháng đầu tiên trên hành trình kiếm con chữ,
+      nơi tớ học cách trưởng thành, tự lập và theo đuổi ước mơ.
+    </p>
+
+    <div class="empty">
+      <span aria-hidden="true">📖</span>
+      <p>Những câu chuyện thời cử nhân đang chờ được viết lại. 🌷</p>
+
+      <div class="back-link">
+        <a href={pathFor('hanh-trinh-kiem-con-chu')}>
+          ← Trở lại Hành trình kiếm con chữ
+        </a>
+      </div>
+    </div>
+  </section>
+</SectionLayout>
+
+<style>
+  .subpage { max-width: 1100px; margin: 0 auto; }
+
+  .intro {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 18px;
+    line-height: 2.2;
+    color: #555555;
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 900px;
+  }
+
+  .empty {
+    background: #fff7f9;
+    border: 1px dashed #e9cfd8;
+    border-radius: 18px;
+    padding: 44px 24px;
+    text-align: center;
+  }
+
+  .empty span { font-size: 34px; }
+
+  .empty p {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 16px;
+    line-height: 2;
+    color: #555555;
+  }
+
+  .back-link { margin-top: 26px; text-align: center; }
+
+  .back-link a {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #a26c7e;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .back-link a:hover { color: #704b5b; }
+
+  @media (max-width: 640px) {
+    .intro { font-size: 16px; }
+  }
+</style>

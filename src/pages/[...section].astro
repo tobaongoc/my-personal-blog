@@ -1,0 +1,19 @@
+---
+import SectionLayout from '../layouts/SectionLayout.astro';
+import SectionCards from '../components/SectionCards.astro';
+import sections from '../data/sections.json';
+import { pathFor } from '../data/navigation';
+export function getStaticPaths(){
+ return sections.flatMap(s => [
+  {params:{section:s.slug},props:{section:s}},
+  ...s.children.map(c=>({params:{section:`${s.slug}/${c.slug}`},props:{section:s,child:c}}))
+ ]);
+}
+const {section,child} = Astro.props;
+const title = child?.label || section.title;
+const description = child?.description || section.description;
+---
+<SectionLayout title={title} description={description}>
+ {child ? <div class="empty-note"><p>Trang này đang chờ những bài viết đầu tiên của Nie. 🌷</p><a href={pathFor(section.slug)}>← Trở lại {section.title}</a></div> : <SectionCards items={section.children.map(c=>({...c,slug:`${section.slug}/${c.slug}`}))}/>}
+</SectionLayout>
+<style>.empty-note{text-align:center;padding:38px;border:1px dashed #e9cfd8;border-radius:16px;color:#76636c}.empty-note a{color:#a26c7e}</style>

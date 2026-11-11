@@ -1,0 +1,137 @@
+
+---
+import SectionLayout from '../../../layouts/SectionLayout.astro';
+import { pathFor } from '../../../data/navigation';
+---
+
+<SectionLayout title="📜 Ngăn ký ức" description="">
+  <section class="story-page">
+    <div class="decoration" aria-hidden="true">✨ 📸 ✨</div>
+
+    <p class="intro">
+      Một ngăn nhỏ dành cho những kỷ niệm cùng bạn bè,
+      những câu chuyện nơi học tập, công việc
+      và những người đã đi qua cuộc đời tớ.
+    </p>
+
+    <div class="divider" aria-hidden="true">
+      <span></span>
+      <span>🌸</span>
+      <span></span>
+    </div>
+
+    <section class="posts" aria-label="Danh sách bài viết">
+      <div class="empty">
+        <span class="empty-icon" aria-hidden="true">📷</span>
+        <h2>Những ký ức đẹp đang chờ được lưu giữ...</h2>
+        <p>
+          Có những khoảnh khắc đã đi qua,
+          nhưng tớ vẫn muốn cất giữ thật lâu. 🌷
+        </p>
+      </div>
+    </section>
+
+    <div class="back-link">
+      <a href={pathFor('ngoi-nghe-nie-ke')}>
+        ← Trở lại Ngồi nghe Nie kể
+      </a>
+    </div>
+  </section>
+</SectionLayout>
+
+<style>
+  .story-page {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .decoration {
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 10px;
+    margin-bottom: 25px;
+  }
+
+  .intro {
+    max-width: 900px;
+    margin: 0 auto 42px;
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 18px;
+    line-height: 2.2;
+    color: #555555;
+    text-align: center;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    max-width: 350px;
+    margin: 0 auto 38px;
+  }
+
+  .divider span:first-child,
+  .divider span:last-child {
+    height: 1px;
+    flex: 1;
+    background: #e9cfd8;
+  }
+
+  .divider span:nth-child(2) {
+    font-size: 23px;
+  }
+
+  .empty {
+    background: #fff7f9;
+    border: 1px dashed #e9cfd8;
+    border-radius: 20px;
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .empty-icon {
+    display: block;
+    font-size: 36px;
+    margin-bottom: 18px;
+  }
+
+  .empty h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 23px;
+    font-weight: 400;
+    color: #704b5b;
+    margin: 0 0 18px;
+  }
+
+  .empty p {
+    font-family: 'Playwrite FR Moderne', cursive;
+    font-size: 16px;
+    line-height: 2;
+    color: #555555;
+    margin: 0;
+  }
+
+  .back-link {
+    margin: 42px auto 24px;
+    text-align: center;
+  }
+
+  .back-link a {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    color: #a26c7e;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .back-link a:hover {
+    color: #704b5b;
+  }
+
+  @media (max-width: 640px) {
+    .intro { font-size: 16px; }
+    .empty { padding: 36px 18px; }
+    .empty h2 { font-size: 20px; }
+  }
+</style>

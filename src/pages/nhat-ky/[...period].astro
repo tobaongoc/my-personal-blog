@@ -1,0 +1,13 @@
+---
+import SectionLayout from '../../layouts/SectionLayout.astro';
+import {pathFor} from '../../data/navigation';
+export function getStaticPaths(){return [2025,2026,2027].flatMap(y=>[
+ {params:{period:String(y)},props:{year:y}},
+ ...Array.from({length:12},(_,i)=>({params:{period:`${y}/thang-${i+1}`},props:{year:y,month:i+1}}))
+]);}
+const {year,month}=Astro.props;
+---
+<SectionLayout title={month?`Tháng ${month} · ${year}`:`Nhật ký năm ${year}`} description={month?'Những ngày tháng bình thường cũng xứng đáng được lưu giữ.':'Mười hai tháng, mười hai trang nhỏ trong hành trình của Nie.'}>
+ {month ? <div class="empty"><p>Tháng này chưa có bài nhật ký nào. 🌷</p><a href={pathFor(`nhat-ky/${year}`)}>← Xem các tháng năm {year}</a></div> : <div class="months">{Array.from({length:12},(_,i)=><a href={pathFor(`nhat-ky/${year}/thang-${i+1}`)}><span>✿</span><strong>Tháng {i+1}</strong><small>Mở nhật ký →</small></a>)}</div>}
+</SectionLayout>
+<style>.months{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.months a{display:flex;flex-direction:column;gap:8px;align-items:center;text-decoration:none;padding:25px 10px;border-radius:16px;border:1px solid #f0dfe5;background:#fff8fa;color:#7e5265;transition:transform .2s}.months a:hover{transform:translateY(-3px)}.months span{color:#bf92a1}.months small{color:#937d85}.empty{text-align:center;padding:40px;background:#fff8fa;border-radius:16px}.empty a{color:#9a6577}@media(max-width:760px){.months{grid-template-columns:repeat(2,1fr)}}</style>
