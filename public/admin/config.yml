@@ -1,0 +1,78 @@
+
+# ==========================================
+# GÓC NHỎ CỦA NIE - DECAP CMS
+# ==========================================
+
+# 1. Đăng nhập qua DecapBridge
+backend:
+  name: git-gateway
+  repo: tobaongoc/my-personal-blog
+  branch: main
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/d8348344-810f-44ee-bb92-7ade1a8295ef/pkce
+  auth_token_endpoint: /sites/d8348344-810f-44ee-bb92-7ade1a8295ef/token
+  gateway_url: https://gateway.decapbridge.com
+
+# 2. Thông tin website
+site_url: https://gochnhocuanie.netlify.app
+display_url: https://gochnhocuanie.netlify.app
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+locale: vi
+
+# 3. Thông tin người đăng nhập
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+
+# 4. Quản lý hình ảnh
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# 5. Quản lý bài viết
+collections:
+  - name: "blog"
+    label: "Bài viết"
+    label_singular: "Bài viết"
+    folder: "src/content/blog"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    summary: "{{title}} - {{pubDate}}"
+
+    fields:
+      - label: "Tiêu đề"
+        name: "title"
+        widget: "string"
+
+      - label: "Mô tả ngắn"
+        name: "description"
+        widget: "text"
+        required: true
+
+      - label: "Ngày đăng"
+        name: "pubDate"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD/MM/YYYY"
+        time_format: false
+
+      - label: "Ngày cập nhật"
+        name: "updatedDate"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD/MM/YYYY"
+        time_format: false
+        required: false
+
+      - label: "Ảnh đại diện"
+        name: "heroImage"
+        widget: "image"
+        required: false
+
+      - label: "Nội dung bài viết"
+        name: "body"
+        widget: "markdown"
